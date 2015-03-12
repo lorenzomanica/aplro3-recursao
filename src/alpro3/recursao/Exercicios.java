@@ -52,7 +52,7 @@ public class Exercicios {
     
     // Exercício 5;
     public boolean pal (int versao, char[] txt) {
-        if (versao == 1) return pal1(txt, 0, txt.length);
+        if (versao == 1) return pal1(txt, 0, txt.length-1);
         else if (versao == 2) return pal2(txt);
         else return false;
     }
@@ -70,7 +70,7 @@ public class Exercicios {
         if (txt[0] != txt[txt.length-1]) return false;
         
         char[] substring = new char[txt.length-2];        
-        for (int i = 1; i < txt.length; i++) substring[i] = txt[i];
+        for (int i = 1; i < txt.length-2; i++) substring[i] = txt[i];
         
         return pal2(substring);
     }
@@ -119,14 +119,16 @@ public class Exercicios {
     }
     
     // Exercicio 9;
+    public void fracoes(float n, int c)
+    {
+        if (n >= 1 || c < 1) return;
+        fracoes(n, c, 0, 2);
+    }
     
-    
-    
-    
-    
-    
-    
-    
+    private void fracoes(float n, int c, float s, int d)
+    {
+        
+    }
     
             
 }
