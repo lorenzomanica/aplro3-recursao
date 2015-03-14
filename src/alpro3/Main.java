@@ -7,6 +7,7 @@ package alpro3;
 
 import alpro3.recursao.Recursao;
 import alpro3.recursao.Exercicios;
+import alpro3.trabalho1.Escadinha;
 /**
  *
  * @author Lorenzo
@@ -19,6 +20,12 @@ public class Main {
     
     public static void main(String[] args) {
         exercicios();
+        //trabalho1();
+    }
+    
+    public static void trabalho1()
+    {
+        Escadinha e = new Escadinha();
     }
     
     public static void exemplo1() {
@@ -28,15 +35,18 @@ public class Main {
     }
     
     public static void exercicios() {
-//        ex1();
-//        ex2();
-//        ex3();
-//        ex4();
-//        ex5();
-//        ex6();
-//        ex7();
-//        ex8();
+        ex1();
+        ex2();
+        ex3();
+        ex4();
+        ex5();
+        ex6();
+        ex7();
+        ex8();
         ex9();
+        ex10();
+        ex11();
+        ex12();
     }
     
     
@@ -116,11 +126,40 @@ public class Main {
     private static void ex9()
     {
         Exercicios e = new Exercicios();
-        int x = 10;
-        float n = 0.275f;
         System.out.println("Ex9: Frações");
-        e.fracoes(n, x);
-        System.out.println();
+        float x = 0.525f;
+        e.fracoes(x, 2, 3, "");
+    }
+    
+    private static void ex10()
+    {
+        Exercicios e = new Exercicios();
+        System.out.println("Ex10: Método M");
+        int[] v = {1,2,3,4,5,6,7,8,9,0};
+        e.m(v, 0, 9);
+    }
+    
+    private static void ex11()
+    {
+        Exercicios e = new Exercicios();
+        System.out.println("Ex11: Combina Vetores iterativo");
+        int[] b = {1,2,3};
+        int[] a = {3,4,5,6,7};
+        int[] res = e.combinavetores_iter(a, b);
+        
+        for (int i: res) System.out.print(i + " ");
+        System.out.println("");
+    }
+    
+    private static  void ex12()
+    {
+        Exercicios e = new Exercicios();
+        System.out.println("Ex12: Mergesort");
+        int[] a = {4,12,87,2,7,24,57,3,65,9};
+        for (int i: a) System.out.print(i + " ");
+        e.mergesort(a);
+        System.out.println("");
+        for (int i: a) System.out.print(i + " ");
     }
     
 }

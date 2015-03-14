@@ -119,18 +119,118 @@ public class Exercicios {
     }
     
     // Exercicio 9;
-    public void fracoes(float n, int c)
+    
+    public void fracoes(float num, int div, int pre, String s)
     {
-        if (n >= 1 || c < 1) return;
-        fracoes(n, c, 0, 2);
+        if (num > 1 || num < Math.pow(10, - pre)) return;
+        
+        float d = 1.0f / div;
+        if (d <= num) {
+            float r = num - d;
+            System.out.print(s);
+            fracoes(r, div+1, pre, s + "1/" + div + " ");
+        }
+        else {
+            fracoes(num, div+1, pre, s);
+        }
     }
     
-    private void fracoes(float n, int c, float s, int d)
+    
+    
+    // Exercício 10;
+    public void m(int[] v, int i, int j)
     {
+        if (i == j) {
+            System.out.println(v[i]); 
+            return; 
+        }
+        int mm = (i + j) / 2;
+        
+        m(v, i, mm);
+        m(v, mm+1, j);
         
     }
     
-            
+    public int[] combinavetores_iter(int[] a, int[] b)
+    {
+        int v_length = a.length + b.length;
+        int[] v = new int[v_length];
+        
+        if (a.length > b.length) {
+            int[] t = a;
+            a = b;
+            b = t;
+        }
+        
+        int a_index = 0;
+        int b_index = 0;
+        
+        for (int i = 0; i < v_length; i++)
+        {
+            if ((a_index < a.length) && (a[a_index] < b[b_index])) {
+                v[i] = a[a_index];
+                a_index++;
+            }
+            else {
+                v[i] = b[b_index];
+                b_index++;
+            }
+        }
+        return v;
+    }
+    
+    public void mergesort(int[] v)
+    {
+        mergesort(v, 0, v.length);
+    }
+    
+    private void mergesort(int[] v, int i, int j)
+    {
+        if (i < j) {
+            int m = (i+j) / 2;
+            mergesort(v, i, m);
+            mergesort(v, m+1, j);
+            merge(v, i, m, j);
+        }
+    }
+    
+    private void merge(int[] v, int i, int m, int j)
+    {
+        int l1 = m-i+1;
+        int l2 = j-m;
+        
+        int[] a = new int[l1];
+        int[] b = new int[l2];
+        
+        for (int x = 0; x < l1; x++)
+            a[x] = v[i+x];
+        for (int y = 0; y < l2-1; y++)
+            b[y] = v[m+1+y];
+        
+        int x = 0;
+        int y = 0;
+        
+        for (int n = i; n <= j; n++) {
+            if (x < a.length && y < b.length) {
+                if (a[x] < b[y]) {
+                    v[n] = a[x];
+                    x++;
+                }
+                else {
+                    v[n] = b[y];
+                    y++;
+                }
+            }
+            else if (i < a.length) {
+                v[n] = a[x];
+                x++;
+            }
+            else if (j < b.length) {
+                v[n] = b[y];
+                y++;
+            }
+        }
+    }
 }
 
 
